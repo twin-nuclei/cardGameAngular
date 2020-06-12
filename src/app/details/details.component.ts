@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Player } from '../player';
 
 @Component({
   selector: 'app-details',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.sass']
 })
 export class DetailsComponent implements OnInit {
+  singleCard = {
+    realName: 'Pepa',
+    playerName: 'Wutz',
+    asset: 'Humor'
+  };
 
   constructor() { }
 
