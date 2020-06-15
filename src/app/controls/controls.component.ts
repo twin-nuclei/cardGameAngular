@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
 
+  sortAscending(): void {
+    alert('Ascending!');
+  }
+
+  sortDescending(): void {
+    alert('Descending!');
+  }
+
+  submit(): void {
+    alert('submitted!');
+  }
+
   constructor() { }
 
   ngOnInit(): void {
