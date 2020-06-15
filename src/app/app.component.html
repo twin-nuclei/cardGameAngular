@@ -1,12 +1,16 @@
 <div id="main" class="container-fluid">
   <div class="row">
-    <app-details id="details" class="col-sm-6 pb-3 pt-3 border border-dark rounded controls"></app-details>
-    <app-controls id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
-      <div id="controls-row" class="row controls-row"></div>
-    </app-controls>
-    <app-overview id="overview" class="container col-sm-12 border border-dark rounded">
-      <div class="row overview-row pb-3"></div>
-    </app-overview>
+    <div id="details" class="col-sm-6 pb-3 pt-3 border border-dark rounded controls">
+      <app-details></app-details>
+    </div>
+    <div id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
+      <div id="controls-row" class="row controls-row">
+        <app-controls></app-controls>
+      </div>
+    </div>
+    <div id="overview" class="container col-sm-12 border border-dark rounded">
+        <app-overview></app-overview>
+    </div>
   </div>
   <div id="submitModal" class="modal">
 </div>

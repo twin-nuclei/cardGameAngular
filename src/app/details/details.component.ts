@@ -8,7 +8,7 @@ import {PLAYERS} from '../players';
   styleUrls: ['./details.component.sass']
 })
 export class DetailsComponent implements OnInit {
-  players = PLAYERS;
+  player = {realName: 'Brianna Forbes', playerName: 'Dreamlurk The Unstoppable', asset: 'Foghammer Lead'};
 
   constructor() { }
 
