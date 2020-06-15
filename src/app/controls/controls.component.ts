@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Player} from '../player';
+import {PLAYERS} from '../players';
 
 @Component({
   selector: 'app-controls',
@@ -6,20 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./controls.component.sass']
 })
 export class ControlsComponent implements OnInit {
+  players = PLAYERS;
 
-  sortAscending(): void {
-    alert('Ascending!');
+  sortAscending(): Player[] {
+    return this.players.slice().sort(this.compare);
   }
 
-  sortDescending(): void {
-    alert('Descending!');
+  sortDescending(): Player[] {
+    return this.sortAscending().reverse();
   }
 
   submit(): void {
     alert('submitted!');
   }
 
-  constructor() { }
+  compare(a: Player , b: Player): number {
+    if ( a.realName < b.realName ){
+      return -1;
+    }
+    if ( a.realName > b.realName ){
+      return 1;
+    }
+    return 0;
+  }
 
   ngOnInit(): void {
   }
