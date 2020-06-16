@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import {Player} from '../player';
 import {PLAYERS} from '../players';
 
@@ -9,6 +9,16 @@ import {PLAYERS} from '../players';
 })
 export class ControlsComponent implements OnInit {
   players = PLAYERS;
+
+  @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
+
+  emitPlayersAscending(){
+    this.sortPlayers.emit(this.sortAscending());
+  }
+
+  emitPlayersDescending() {
+    this.sortPlayers.emit(this.sortDescending());
+  }
 
   sortAscending(): Player[] {
     return this.players.slice().sort(this.compare);
