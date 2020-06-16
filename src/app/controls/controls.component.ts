@@ -1,14 +1,16 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import {Player} from '../player';
 import {PLAYERS} from '../players';
+import {PlayersService} from '../players.service';
 
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.sass']
+  styleUrls: ['./controls.component.sass'],
 })
 export class ControlsComponent implements OnInit {
-  players = PLAYERS;
+  constructor(private cardService: PlayersService) {}
+  players = this.cardService.getPlayers();
 
   @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
 
