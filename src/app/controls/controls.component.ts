@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Player} from '../player';
 import {PLAYERS} from '../players';
 import {PlayersService} from '../players.service';
@@ -10,7 +10,7 @@ import {PlayersService} from '../players.service';
 })
 export class ControlsComponent implements OnInit {
   constructor(private cardService: PlayersService) {}
-  players = this.cardService.players;
+  @Input() players: Player[] = [];
 
   @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
 

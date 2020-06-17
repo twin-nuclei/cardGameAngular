@@ -12,7 +12,7 @@ import {Player} from './player';
 })
 export class AppComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
-  players: Player[];
+  players: Player[] =[];
 
   @ViewChild(OverviewComponent)
     overview: OverviewComponent;
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     this.playerService.getPlayers().subscribe(
       players => {
         this.players = players;
-        console.log(players);
       },
       error => {
         console.log('Error retrieving players');

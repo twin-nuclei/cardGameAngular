@@ -4,10 +4,10 @@
       <app-details></app-details>
     </div>
     <div id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
-        <app-controls (sortPlayers)="overview.sortPlayers($event)"></app-controls>
+        <app-controls (sortPlayers)="overview.sortPlayers($event)" [players]="players"></app-controls>
     </div>
     <div id="overview" class="container col-sm-12 border border-dark rounded">
-        <app-overview></app-overview>
+        <app-overview [players]="players"></app-overview>
     </div>
   </div>
   <div id="submitModal" class="modal">

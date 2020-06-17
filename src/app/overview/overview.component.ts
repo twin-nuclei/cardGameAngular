@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {PLAYERS} from '../players';
 import {Player} from '../player';
 import {PlayersService} from '../players.service';
@@ -9,7 +9,7 @@ import {PlayersService} from '../players.service';
 })
 export class OverviewComponent {
   constructor(private playerService: PlayersService) {}
-  players = this.playerService.players;
+  @Input() players: Player[] = [];
 
 
   sortPlayers(players: Player[]): void  {
