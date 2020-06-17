@@ -12,7 +12,7 @@ import {Player} from './player';
 })
 export class AppComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
-  players: Player[] =[];
+  players: Player[] = [];
 
   @ViewChild(OverviewComponent)
     overview: OverviewComponent;
