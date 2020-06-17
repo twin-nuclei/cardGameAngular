@@ -9,7 +9,7 @@ import {PlayersService} from '../players.service';
 })
 export class OverviewComponent {
   constructor(private playerService: PlayersService) {}
-  players = this.playerService.getPlayers();
+  players = this.playerService.players;
 
 
   sortPlayers(players: Player[]): void  {

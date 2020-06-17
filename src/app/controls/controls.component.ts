@@ -10,7 +10,7 @@ import {PlayersService} from '../players.service';
 })
 export class ControlsComponent implements OnInit {
   constructor(private cardService: PlayersService) {}
-  players = this.cardService.getPlayers();
+  players = this.cardService.players;
 
   @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
 
