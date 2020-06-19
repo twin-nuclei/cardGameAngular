@@ -8,6 +8,7 @@ import { PLAYERS } from './players';
   providedIn: 'root'
 })
 export class PlayersService {
+  playersUrl = 'assets/players.json';
   constructor(private http: HttpClient) { }
   players = PLAYERS;
   player = null;
@@ -15,6 +16,6 @@ export class PlayersService {
   selectedPlayer: EventEmitter<Player> = new EventEmitter();
 
   getPlayers() {
-    return this.http.get<Player[]>('assets/players.json').pipe(map(data => data));
+    return this.http.get<Player[]>(this.playersUrl).pipe(map(data => data));
   }
 }
