@@ -28,4 +28,10 @@ describe('PlayersService', () => {
   it('should be created', inject([PlayersService], (service: PlayersService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('can instantiate service with "new"', inject([HttpClient], (http: HttpClient) => {
+    expect(http).not.toBeNull('http should be provided');
+    const service = new PlayersService(http);
+    expect(service instanceof PlayersService).toBe(true, 'new service should be OK');
+  }));
 });
