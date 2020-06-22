@@ -1,10 +1,10 @@
-import { TestBed, inject, async, fakeAsync } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
+import {TestBed, inject, async, fakeAsync} from '@angular/core/testing';
+import {HttpClient} from '@angular/common/http';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Player} from './player';
 
 
-import {PlayersService } from './players.service';
+import {PlayersService} from './players.service';
 
 
 describe('PlayersService', () => {
@@ -14,8 +14,8 @@ describe('PlayersService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [ PlayersService ]
+      imports: [HttpClientTestingModule],
+      providers: [PlayersService]
     });
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -36,21 +36,29 @@ describe('PlayersService', () => {
     expect(service instanceof PlayersService).toBe(true, 'new service should be OK');
   }));
 
-  it('should return all players', async(() => {
+  it('should return all players', (done) => {
     let expectedPlayers: Player[];
-    let actualPlayers: Player[];
+
 
     expectedPlayers = [
       {id: 0, realName: 'Brianna Forbes', playerName: 'Dreamlurk The Unstoppable', asset: 'Foghammer Lead'}
     ] as Player[];
 
-    playersService.getPlayers().subscribe(
-      players => actualPlayers = players, fail
-    );
-
+    console.log('A');
+    playersService
+      .getPlayers()
+      .subscribe(
+        (players) => {
+          setTimeout(() => {
+            console.log('B');
+            expect(players).toEqual(expectedPlayers);
+            done();
+          }, 1000);
+        }
+      );
+    console.log('C');
     const req = httpTestingController.expectOne(playersService.playersUrl);
     expect(req.request.method).toEqual('GET');
     req.flush(expectedPlayers);
-    expect(actualPlayers === expectedPlayers);
-  }));
+  });
 });

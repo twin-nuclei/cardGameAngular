@@ -10,8 +10,6 @@ import { PLAYERS } from './players';
 export class PlayersService {
   playersUrl = 'assets/players.json';
   constructor(private http: HttpClient) { }
-  players = PLAYERS;
-  player = null;
 
   selectedPlayer: EventEmitter<Player> = new EventEmitter();
 
