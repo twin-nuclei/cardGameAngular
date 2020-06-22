@@ -1,7 +1,7 @@
 <div id="main" class="container-fluid">
   <div class="row">
     <div id="details" class="col-sm-6 pb-3 pt-3 border border-dark rounded controls">
-      <app-details></app-details>
+      <router-outlet></router-outlet>
     </div>
     <div id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
         <app-controls (sortPlayers)="overview.sortPlayers($event)" [players]="players"></app-controls>

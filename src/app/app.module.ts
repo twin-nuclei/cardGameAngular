@@ -8,6 +8,13 @@ import { OverviewComponent } from './overview/overview.component';
 import { ControlsComponent } from './controls/controls.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'details/:id', component: DetailsComponent},
+  { path: '', component: DetailsComponent}
+];
+
 
 @NgModule({
   declarations: [
@@ -21,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
