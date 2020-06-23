@@ -4,13 +4,11 @@
       <router-outlet></router-outlet>
     </div>
     <div id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
-        <app-controls (sortPlayers)="overview.sortPlayers($event)" [players]="players"></app-controls>
+        <app-controls (sortPlayers)="overview.sortPlayers($event)"></app-controls>
     </div>
     <div id="overview" class="container col-sm-12 border border-dark rounded">
-        <app-overview [players]="players"></app-overview>
+        <app-overview></app-overview>
     </div>
   </div>
-  <div id="submitModal" class="modal">
+  <div id="submitModal" class="modal"></div>
 </div>
-
-

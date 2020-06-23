@@ -9,10 +9,17 @@ import {PlayersService} from '../players.service';
   styleUrls: ['./controls.component.sass'],
 })
 export class ControlsComponent implements OnInit {
-  constructor(private cardService: PlayersService) {}
-  @Input() players: Player[] = [];
+  constructor(private playerService: PlayersService) {}
+  players: Player[];
 
   @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
+
+  getPlayers() {
+    if (!this.players) {
+      this.players = this.playerService.players;
+    }
+    return this.players;
+  }
 
   emitPlayersAscending(){
     this.sortPlayers.emit(this.sortAscending());
@@ -23,7 +30,8 @@ export class ControlsComponent implements OnInit {
   }
 
   sortAscending(): Player[] {
-    return this.players.slice().sort(this.compare);
+    return this.getPlayers().slice().sort(this.compare);
+
   }
 
   sortDescending(): Player[] {

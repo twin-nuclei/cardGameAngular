@@ -1,5 +1,8 @@
-<h2>Players</h2>
-<div class="row">
-    <app-card [player]="player" *ngFor="let player of players"></app-card>
+<div *ngIf="isDataLoaded()">
+  <h2>Players</h2>
+  <div class="row">
+    <app-card [player]="player" *ngFor="let player of getPlayers()"></app-card>
+  </div>
 </div>
+
 

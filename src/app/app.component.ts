@@ -12,21 +12,13 @@ import {Player} from './player';
 })
 export class AppComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
-  players: Player[] = [];
+  players: Player[] = this.playerService.players;
 
   @ViewChild(OverviewComponent)
     overview: OverviewComponent;
 
   ngOnInit() {
-    this.playerService.getPlayers().subscribe(
-      players => {
-        this.players = players;
-      },
-      error => {
-        console.log('Error retrieving players');
-        console.error(error);
-      }
-    );
+    this.playerService.getPlayers();
   }
 
 }

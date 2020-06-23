@@ -2,21 +2,21 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Player} from '../player';
 import {PLAYERS} from '../players';
 import {PlayersService} from '../players.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.sass']
 })
-export class CardComponent implements OnInit {
-  constructor(private playersService: PlayersService) { }
+export class CardComponent {
+  constructor(private playersService: PlayersService,
+              private router: Router) { }
   @Input() player: Player;
 
   selectPlayer() {
-    this.playersService.selectedPlayer.emit(this.player);
-  }
-
-  ngOnInit(): void {
+    // this.playersService.selectedPlayer.emit(this.player.id);
+    this.router.navigate(['details', this.player.id]);
   }
 
 }

@@ -8,12 +8,26 @@ import { PLAYERS } from './players';
   providedIn: 'root'
 })
 export class PlayersService {
+  constructor(private http: HttpClient) {}
   playersUrl = 'assets/players.json';
-  constructor(private http: HttpClient) { }
+  players: Player[] = [];
+  isDataLoaded = false;
 
-  selectedPlayer: EventEmitter<Player> = new EventEmitter();
+  selectedPlayer: EventEmitter<number> = new EventEmitter();
 
   getPlayers() {
-    return this.http.get<Player[]>(this.playersUrl).pipe(map(data => data));
+    return this.http
+      .get<Player[]>(this.playersUrl)
+      .pipe(map(data => data))
+      .subscribe(
+        players => {
+          this.players = players;
+          this.isDataLoaded = true;
+        },
+        error => {
+          console.log('Error retrieving players');
+          console.error(error);
+        }
+      );
   }
 }
