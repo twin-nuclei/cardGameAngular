@@ -15,8 +15,7 @@ export class CardComponent {
   @Input() player: Player;
 
   selectPlayer() {
-    // this.playersService.selectedPlayer.emit(this.player.id);
-    this.router.navigate(['details', this.player.id]);
+    this.router.navigate(['/details', this.player.id]);
   }
 
 }

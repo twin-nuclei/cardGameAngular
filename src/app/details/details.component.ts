@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Player } from '../player';
 import {PLAYERS} from '../players';
 import {PlayersService} from '../players.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -9,16 +10,27 @@ import {PlayersService} from '../players.service';
   styleUrls: ['./details.component.sass']
 })
 export class DetailsComponent implements OnInit {
-  constructor(private playerService: PlayersService) {}
-  player: Player = {id: 0, realName: '', playerName: '', asset: ''};
-  players: Player[] = this.playerService.players;
+  constructor(private playerService: PlayersService,
+              private route: ActivatedRoute) {}
+  player: Player;
 
   ngOnInit(): void {
-    this.playerService
-      .selectedPlayer
-      .subscribe(playerId => {
-        this.player = this.playerService.players.filter(player => player.id === playerId)[0];
-      });
+    const playerId = Number(this.route.snapshot.params.id);
+    this.player = this.playerService.players.filter(player => player.id === playerId)[0];
+    this.route.params.subscribe(
+      (params: Params) => {
+        console.log(params.id);
+        this.player = this
+          .playerService
+          .players
+          .filter(player => player.id === Number(params.id))[0];
+        console.log(this.player);
+      },
+      error => {
+        console.log('Could not load player');
+        console.log(error);
+      }
+    );
   }
 
 }
