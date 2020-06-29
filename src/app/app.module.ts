@@ -9,10 +9,13 @@ import { ControlsComponent } from './controls/controls.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: 'details/:id', component: DetailsComponent},
-  { path: '', component: DetailsComponent}
+  { path: '', component: DetailsComponent},
+  {path: 'not-found', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/not-found'}
 ];
 
 
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     OverviewComponent,
     DetailsComponent,
     ControlsComponent,
-    CardComponent
+    CardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
