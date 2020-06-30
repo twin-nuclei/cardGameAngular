@@ -9,12 +9,13 @@ import { ControlsComponent } from './controls/controls.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {NoCardSelectedComponent} from './no-card-selected/no-card-selected.component';
+import {CardResolverService} from './card.resolver.service';
 
 const appRoutes: Routes = [
-  { path: 'details/:id', component: DetailsComponent},
-  { path: '', component: DetailsComponent},
-  {path: 'not-found', component: PageNotFoundComponent},
+  { path: 'details/:id', component: DetailsComponent, resolve: {player: CardResolverService}},
+  { path: '', component: NoCardSelectedComponent},
+  {path: 'not-found', component: NoCardSelectedComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
     DetailsComponent,
     ControlsComponent,
     CardComponent,
-    PageNotFoundComponent
+    NoCardSelectedComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [CardResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
