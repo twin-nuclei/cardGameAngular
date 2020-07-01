@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NotFoundGuard } from './not-found.guard';
+import { CanFindCardWithIdGuard } from './can-find-card-with-id.guard';
 
 describe('NotFoundGuard', () => {
-  let guard: NotFoundGuard;
+  let guard: CanFindCardWithIdGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(NotFoundGuard);
+    guard = TestBed.inject(CanFindCardWithIdGuard);
   });
 
   it('should be created', () => {

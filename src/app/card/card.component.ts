@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Player} from '../player';
-import {PLAYERS} from '../players';
 import {PlayersService} from '../players.service';
 import {Router} from '@angular/router';
 
@@ -14,8 +13,5 @@ export class CardComponent {
               private router: Router) { }
   @Input() player: Player;
 
-  selectPlayer() {
-    this.router.navigate(['/details', this.player.id]);
-  }
 
 }

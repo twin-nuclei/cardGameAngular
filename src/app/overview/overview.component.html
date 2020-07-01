@@ -1,8 +1,10 @@
-<div *ngIf="isDataLoaded()">
-  <h2>Players</h2>
-  <div class="row">
-    <app-card [player]="player" *ngFor="let player of getPlayers()"></app-card>
-  </div>
+<h2>Players</h2>
+<div class="row">
+  <app-card *ngFor="let player of players | async | orderBy: sortOrder"
+            [player]="player">
+  </app-card>
 </div>
+
+
 
 

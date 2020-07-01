@@ -19,7 +19,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     const playerId = Number(this.route.snapshot.params.id);
     this.player = this.playerService.players.filter(player => player.id === playerId)[0];
-    console.log(this.player);
     this.route.params.subscribe(
       (params: Params) => {
         this.player = this

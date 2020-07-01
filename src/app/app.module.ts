@@ -8,15 +8,11 @@ import { OverviewComponent } from './overview/overview.component';
 import { ControlsComponent } from './controls/controls.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
-import {RouterModule, Routes} from '@angular/router';
 import {NoCardSelectedComponent} from './no-card-selected/no-card-selected.component';
-
-const appRoutes: Routes = [
-  { path: 'details/:id', component: DetailsComponent},
-  { path: '', component: NoCardSelectedComponent},
-  { path: 'not-found', component: NoCardSelectedComponent},
-  { path: '**', redirectTo: '/not-found'}
-];
+import {CanFindCardWithIdGuard} from './guards/can-find-card-with-id.guard';
+import { Error404Component } from './error/error404/error404.component';
+import { CardNotFoundComponent } from './card-not-found/card-not-found.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -26,15 +22,17 @@ const appRoutes: Routes = [
     DetailsComponent,
     ControlsComponent,
     CardComponent,
-    NoCardSelectedComponent
+    NoCardSelectedComponent,
+    Error404Component,
+    CardNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    SharedModule
   ],
-  providers: [],
+  providers: [CanFindCardWithIdGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

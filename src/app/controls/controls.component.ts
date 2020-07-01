@@ -12,44 +12,18 @@ export class ControlsComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
   players: Player[];
 
-  @Output() sortPlayers: EventEmitter<Player[]> = new EventEmitter();
-
-  getPlayers() {
-    if (!this.players) {
-      this.players = this.playerService.players;
-    }
-    return this.players;
-  }
+  @Output() sortPlayers: EventEmitter<boolean> = new EventEmitter();
 
   emitPlayersAscending(){
-    this.sortPlayers.emit(this.sortAscending());
+    this.sortPlayers.emit(true);
   }
 
   emitPlayersDescending() {
-    this.sortPlayers.emit(this.sortDescending());
-  }
-
-  sortAscending(): Player[] {
-    return this.getPlayers().slice().sort(this.compare);
-
-  }
-
-  sortDescending(): Player[] {
-    return this.sortAscending().reverse();
+    this.sortPlayers.emit(false);
   }
 
   submit(): void {
     alert('submitted!');
-  }
-
-  compare(a: Player , b: Player): number {
-    if ( a.realName < b.realName ){
-      return -1;
-    }
-    if ( a.realName > b.realName ){
-      return 1;
-    }
-    return 0;
   }
 
   ngOnInit(): void {
