@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Player} from '../player';
-import {PlayersService} from '../players.service';
+import {Component, Input} from '@angular/core';
+import {Player} from '../../../shared/interfaces/player';
+import {PlayersService} from '../../../shared/services/players.service';
 import {Router} from '@angular/router';
 
 @Component({

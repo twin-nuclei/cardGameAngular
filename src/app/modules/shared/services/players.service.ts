@@ -1,8 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Player} from './player';
+import {Player} from '../interfaces/player';
 import {map } from 'rxjs/operators';
-import { PLAYERS } from './players';
 import {Observable} from 'rxjs';
 
 @Injectable({

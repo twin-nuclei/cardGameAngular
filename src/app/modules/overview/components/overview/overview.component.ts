@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PLAYERS} from '../players';
-import {Player} from '../player';
-import {PlayersService} from '../players.service';
+import {Component, OnInit} from '@angular/core';
+import {Player} from '../../../shared/interfaces/player';
+import {PlayersService} from '../../../shared/services/players.service';
 import {Observable} from 'rxjs';
 
 @Component({

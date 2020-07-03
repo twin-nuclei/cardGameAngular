@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DetailsComponent} from './details/details.component';
-import {CanFindCardWithIdGuard} from './guards/can-find-card-with-id.guard';
-import {NoCardSelectedComponent} from './no-card-selected/no-card-selected.component';
-import {Error404Component} from './error/error404/error404.component';
-import {CardNotFoundComponent} from './card-not-found/card-not-found.component';
+import {DetailsComponent} from './modules/details/components/details/details.component';
+import {CanFindCardWithIdGuard} from './modules/details/guards/can-find-card-with-id.guard';
+import {Error404Component} from './modules/shared/components/error404/error404.component';
+
 
 
 const routes: Routes = [
-  { path: 'details/:id', component: DetailsComponent, canActivate: [CanFindCardWithIdGuard]},
-  { path: 'card-no-found', component: CardNotFoundComponent},
-  { path: '', component: NoCardSelectedComponent},
+  { path: '', redirectTo: '/overview', pathMatch: 'full'},
+  { path: 'overview', loadChildren: () => import('./modules/overview/overview.module').then(m => m.OverviewModule)},
+  { path: 'details/:id', loadChildren: () => import('./modules/details/details.module').then(m => m.DetailsModule)},
   { path: '**', component: Error404Component}
 ];
 

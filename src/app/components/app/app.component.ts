@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
-import { OverviewComponent } from './overview/overview.component';
-import { PlayersService } from './players.service';
-import {Player} from './player';
+import { OverviewComponent } from '../../modules/overview/components/overview/overview.component';
+import { PlayersService } from '../../modules/shared/services/players.service';
+import {Player} from '../../modules/shared/interfaces/player';
 
 @Component({
   selector: 'app-root',

@@ -3,7 +3,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {CardComponent} from './card.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {PlayersService} from '../players.service';
+import {PlayersService} from '../../../shared/services/players.service';
 import {Router} from '@angular/router';
 
 describe('CardComponent', () => {

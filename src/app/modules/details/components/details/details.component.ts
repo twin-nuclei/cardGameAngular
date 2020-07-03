@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Player } from '../player';
-import {PLAYERS} from '../players';
-import {PlayersService} from '../players.service';
+import { Player } from '../../../shared/interfaces/player';
+import {PlayersService} from '../../../shared/services/players.service';
 import {ActivatedRoute, Params} from '@angular/router';
 
 
