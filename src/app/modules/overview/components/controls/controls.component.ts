@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Player} from '../../../shared/interfaces/player';
-import {PlayersService} from '../../../shared/services/players.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-controls',
@@ -8,17 +8,15 @@ import {PlayersService} from '../../../shared/services/players.service';
   styleUrls: ['./controls.component.sass'],
 })
 export class ControlsComponent implements OnInit {
-  constructor(private playerService: PlayersService) {}
+  constructor(private router: Router) {}
   players: Player[];
 
-  @Output() sortPlayers: EventEmitter<boolean> = new EventEmitter();
-
-  emitPlayersAscending(){
-    this.sortPlayers.emit(true);
+  sortAscending(){
+    this.router.navigate(['overview'], {queryParams: {sort: 'ascending'}});
   }
 
-  emitPlayersDescending() {
-    this.sortPlayers.emit(false);
+  sortDescending() {
+    this.router.navigate(['overview'], {queryParams: {sort: 'descending'}});
   }
 
   submit(): void {
