@@ -1,4 +1,4 @@
-<div class="col-md-12 mt-3">
+<div *ngIf="!!player" class="col-md-12 mt-3">
   <div data-qa="selectPlayer" [routerLink]="'/detailsPage/' + player.id" class="card-body border border-primary rounded">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{player.realName}}</li>
