@@ -32,16 +32,4 @@ describe('CardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  fit('select player method should provide selected player to player service', inject([PlayersService], (service: PlayersService) => {
-    // what should be tested in this test. what makes sense?
-    // answer: the/a player should be emitted. But as it is emitted to the player service,
-    // do we need to test this in the player service? Or do we need to add the player service
-    // as a dependency?
-    const testPlayer = {id: 0, realName: 'Brianna Forbes', playerName: 'Dreamlurk The Unstoppable', asset: 'Foghammer Lead'};
-    spyOn(service.selectedPlayer, 'emit');
-    component.player = testPlayer;
-    component.selectPlayer();
-    expect(service.selectedPlayer.emit).toHaveBeenCalledWith(testPlayer);
-  }));
 });
