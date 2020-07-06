@@ -5,9 +5,9 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-overview',
-  templateUrl: './overview.component.html'
+  templateUrl: './overview.page.component.html'
 })
-export class OverviewComponent implements OnInit {
+export class OverviewPageComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
   players: Observable<Player[]> = this.playerService.getAllPlayers();
   sortOrder = 'realName';

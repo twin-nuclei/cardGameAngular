@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DetailsRoutingModule } from './details-routing.module';
-import {DetailsComponent} from './components/details/details.component';
+import {DetailsPageComponent} from './components/detailsPage/details.page.component';
 
 
 @NgModule({
   declarations: [
-    DetailsComponent
+    DetailsPageComponent
   ],
   imports: [
     CommonModule,

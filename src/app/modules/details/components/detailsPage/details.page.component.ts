@@ -7,10 +7,10 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.sass']
+  templateUrl: './details.page.component.html',
+  styleUrls: ['./details.page.component.sass']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsPageComponent implements OnInit {
   constructor(private playerService: PlayersService,
               private route: ActivatedRoute) {}
   player: Player;

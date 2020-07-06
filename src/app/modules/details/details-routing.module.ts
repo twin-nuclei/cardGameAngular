@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DetailsComponent} from './components/details/details.component';
+import {DetailsPageComponent} from './components/detailsPage/details.page.component';
 import {CanFindCardWithIdGuard} from './guards/can-find-card-with-id.guard';
 
 
 const routes: Routes = [
-  {path: '', component: DetailsComponent, canActivate: [CanFindCardWithIdGuard]}
+  {path: '', component: DetailsPageComponent, canActivate: [CanFindCardWithIdGuard]}
 ];
 
 @NgModule({
