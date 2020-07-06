@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 export class OverviewPageComponent implements OnInit {
   constructor(private playerService: PlayersService) {}
   players: Observable<Player[]> = this.playerService.getAllPlayers();
-  sortOrder = '';
+  sortOrder: string;
 
   sortPlayers(ascending: boolean): void  {
     if (ascending) {
