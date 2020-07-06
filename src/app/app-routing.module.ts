@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DetailsPageComponent} from './modules/details/components/detailsPage/details.page.component';
-import {CanFindCardWithIdGuard} from './modules/details/guards/can-find-card-with-id.guard';
 import {Error404Component} from './modules/shared/components/error404/error404.component';
 
 

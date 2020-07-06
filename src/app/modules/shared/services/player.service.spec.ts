@@ -5,6 +5,7 @@ import {Player} from '../interfaces/player';
 
 
 import {PlayersService} from './players.service';
+import {RouterTestingModule} from '@angular/router/testing';
 
 
 describe('PlayersService', () => {
@@ -14,7 +15,7 @@ describe('PlayersService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [PlayersService]
     });
     httpClient = TestBed.inject(HttpClient);
