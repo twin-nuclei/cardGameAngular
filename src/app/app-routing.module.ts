@@ -5,9 +5,9 @@ import {Error404Component} from './modules/shared/components/error404/error404.c
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/overviewPage', pathMatch: 'full'},
+  { path: '', redirectTo: '/overview', pathMatch: 'full'},
   { path: 'overview', loadChildren: () => import('./modules/overview/overview.module').then(m => m.OverviewModule)},
-  { path: 'detailsPage/:id', loadChildren: () => import('./modules/details/details.module').then(m => m.DetailsModule)},
+  { path: 'details/:id', loadChildren: () => import('./modules/details/details.module').then(m => m.DetailsModule)},
   { path: '**', component: Error404Component}
 ];
 
