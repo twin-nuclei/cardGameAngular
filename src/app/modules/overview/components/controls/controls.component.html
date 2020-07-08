@@ -1,16 +1,15 @@
-<div class="col-md-12">
-  <button [routerLink]="['/overview', sortDirection.ASC ]"
-          [disabled]="currentSortDirection === sortDirection.ASC"
-          type="button"
-          class="btn btn-primary btn-lg">Sort Ascending
-  </button>
-</div>
-<div class="col-md-12">
-  <button [routerLink]="['/overview', sortDirection.DESC]"
-          [disabled]="currentSortDirection === sortDirection.DESC"
-          type="button"
-          class="btn btn-primary btn-lg">Sort Descending
-  </button>
-</div>
+<button [routerLink]="['/overview', sortDirection.ASC ]"
+        [disabled]="currentSortDirection === sortDirection.ASC"
+        type="button"
+        class="btn btn-primary btn-md mr-2">Sort Ascending
+</button>
+<button [routerLink]="['/overview', sortDirection.DESC]"
+        [disabled]="currentSortDirection === sortDirection.DESC"
+        type="button"
+        class="btn btn-primary btn-md">Sort Descending
+</button>
+
+
+
 
 

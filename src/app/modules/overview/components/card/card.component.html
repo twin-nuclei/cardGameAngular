@@ -1,10 +1,12 @@
-<div *ngIf="!!player" class="col-md-12 mt-3">
-  <div data-qa="selectPlayer" [routerLink]="'/details/' + player.id" class="card-body border border-primary rounded">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{player.realName}}</li>
-      <li class="list-group-item">{{player.playerName}}</li>
-      <li class="list-group-item">{{player.asset}}</li>
-    </ul>
+<div *ngIf="!!player"
+     [routerLink]="['/details/', player.id]"
+     class="card w-100 border rounded bg-success text-white">
+  <div class="card-body">
+    <p>Real name: {{player.realName}}</p>
+    <p>Player name: {{player.playerName}}</p>
+    <p>Asset: {{player.asset}}</p>
   </div>
 </div>
+
+
 

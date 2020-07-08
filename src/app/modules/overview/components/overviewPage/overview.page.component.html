@@ -1,13 +1,20 @@
-<h2>Players</h2>
 <div class="row">
-  <div id="cards" class="col-sm-6 pb-3 border border-dark rounded controls">
-    <app-card *ngFor="let player of players | async | orderBy: (sortOrder || 'realName')"
-              [player]="player">
-    </app-card>
+  <header id="header" class="col-sm-12 mt-4 pt-2">
+      <h3 class="font-weight-normal">The Card Game</h3>
+  </header>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-sm-6 mb-2">
+    <h3 class="font-weight-normal">Players</h3>
   </div>
-  <div id="controls" class="col-sm-6 pb-3 border border-dark rounded controls">
+  <div class="col-sm-6 d-flex justify-content-sm-end">
     <app-controls [currentSortDirection]="sortDirection"></app-controls>
   </div>
+  <app-card *ngFor="let player of players | async | orderBy: (sortOrder || 'realName')"
+            [player]="player"
+            class="col-md-4 mt-4 d-flex align-items-stretch">
+  </app-card>
 </div>
 
 
