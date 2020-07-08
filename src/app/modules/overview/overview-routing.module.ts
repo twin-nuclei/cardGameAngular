@@ -4,7 +4,12 @@ import {OverviewPageComponent} from './components/overviewPage/overview.page.com
 
 
 const routes: Routes = [
-  {path: '', component: OverviewPageComponent}
+  { path: '',
+    children: [
+      { path: '', component: OverviewPageComponent, pathMatch: 'full'},
+      { path: ':sort', component: OverviewPageComponent}
+    ]
+  }
 ];
 
 @NgModule({

@@ -3,6 +3,9 @@ import {Player} from '../../../shared/interfaces/player';
 import {PlayersService} from '../../../shared/services/players.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import {SortDirection} from '../../../../enums/sort-direction.enum';
+
+const SORT_PROPERTY = 'realName';
 
 @Component({
   selector: 'app-overview',
@@ -10,22 +13,20 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class OverviewPageComponent implements OnInit {
   constructor(private playerService: PlayersService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+  }
+
   players: Observable<Player[]> = this.playerService.getAllPlayers();
   sortOrder: string;
+  sortDirection: string;
 
   ngOnInit() {
-    this.route.queryParams
+    this.route.params
       .subscribe(
         (params) => {
-          if (params.sort === 'ascending') {
-            this.sortOrder = 'realName';
-          } else if (params.sort === 'ascending') {
-            this.sortOrder = '-realName';
-          } else {
-            this.sortOrder = null;
-          }
+          this.sortDirection = (params.sort === SortDirection.ASC) ? SortDirection.ASC : SortDirection.DESC;
+          this.sortOrder = ((params.sort === SortDirection.DESC) ? '-' : '') + SORT_PROPERTY;
         }
-    );
+      );
   }
 }

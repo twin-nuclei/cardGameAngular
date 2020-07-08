@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Player} from '../../../shared/interfaces/player';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {SortDirection} from '../../../../enums/sort-direction.enum';
 
 @Component({
   selector: 'app-controls',
@@ -8,19 +8,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./controls.component.sass'],
 })
 export class ControlsComponent implements OnInit {
-  constructor(private router: Router) {}
-  players: Player[];
+  @Input() currentSortDirection: SortDirection;
+  public sortDirection = SortDirection;
 
-  sortAscending(){
-    this.router.navigate(['overview'], {queryParams: {sort: 'ascending'}});
-  }
-
-  sortDescending() {
-    this.router.navigate(['overview'], {queryParams: {sort: 'descending'}});
-  }
-
-  submit(): void {
-    alert('submitted!');
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
