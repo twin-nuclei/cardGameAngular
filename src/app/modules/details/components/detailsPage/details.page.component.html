@@ -1,9 +1,23 @@
-<div *ngIf="!!player" class="card-body border border-primary rounded">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{player.realName}}</li>
-    <li class="list-group-item">{{player.playerName}}</li>
-    <li class="list-group-item">{{player.asset}}</li>
-  </ul>
+<div class="row">
+  <header id="header" class="col-sm-12 mt-4 pt-2">
+    <h3 class="font-weight-normal">The Card Game</h3>
+  </header>
 </div>
+<hr/>
+  <div class="row mt-5 mb-5">
+    <div class="col-8 offset-2 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div *ngIf="!!player"
+           class="card h-100 w-100 border rounded bg-success text-white">
+        <div class="card-body">
+          <p>Real name: {{player.realName}}</p>
+          <p>Player name: {{player.playerName}}</p>
+          <p>Asset: {{player.asset}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr/>
+<a href="/overview">Back To Overview</a>
+
 
 
