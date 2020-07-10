@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Player} from '../../../shared/interfaces/player';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./card.component.sass']
 })
 export class CardComponent {
-  constructor( private router: Router) { }
+  constructor() { }
   @Input() player: Player;
 
 
