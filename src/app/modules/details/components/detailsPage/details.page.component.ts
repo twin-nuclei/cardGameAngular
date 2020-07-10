@@ -17,19 +17,11 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     const playerId = Number(this.route.snapshot.params.id);
-    this.player = this.playerService.players.filter(player => player.id === playerId)[0];
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.player = this
-          .playerService
-          .players
-          .filter(player => player.id === Number(params.id))[0];
-      },
-      error => {
-        console.log('Could not load player');
-        console.log(error);
+    this.playerService
+      .getAllPlayers()
+      .subscribe((players) => {
+        this.player = players.filter(player => player.id === playerId)[0];
       }
     );
   }
-
 }
